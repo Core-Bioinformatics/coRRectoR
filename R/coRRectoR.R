@@ -20,6 +20,6 @@ coRRectoR <- function(exps, neighbours=20, normalisation="quant", par=F) {
   grns <- generateGRNS(exps, par)
   covs <- calculateCovs(grns, par)
   uniqueGenes <- intersectGenes(covs, neighbours)
-  exps <- subsampleExps(exps, uniqueGenes, normalisation)
+  exps <- normaliseExps(exps, uniqueGenes, normalisation)
   return(exps)
 }
