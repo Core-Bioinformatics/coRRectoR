@@ -20,7 +20,7 @@ library(noisyr)
 #' @export
 coRRectoR <- function(exps, neighbours=20, par=F, preprocess=T) {
   if (preprocess) exps <- lapply(exps, noisyr_counts)
-  grns <- generateGRNS(exps, par)
+  grns <- generateGRNs(exps, par)
   covs <- calculateCovs(grns, par)
   uniqueGenes <- intersectGenes(covs, neighbours)
   exps <- normaliseExps(exps, uniqueGenes)
