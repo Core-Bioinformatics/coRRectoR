@@ -10,9 +10,6 @@ library(noisyr)
 #' @export
 generateGRNs <- function(exps, par=F) {
   
-  # Preprocessing
-  preprocessed <- lapply(exps, noisyr_counts)
-  
   # Create GRNs
   message("inferring GRNs")
   if (par) {
