@@ -1,10 +1,13 @@
 Package: coRRectoR
 Title: Functional Batch Correction
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+            person("Cameron", "Crawford", , "cc2111@cam.ac.uk", c("aut", "cre")),
+            person("Irina", "Mohorianu", , "iim22@cam.ac.uk", role = c("aut", "ctb"))
+            )
+Description: Functional bulk RNA-seq batch correction through the identification 
+    of consistent gene interactions between batches. Relies on the inference
+    of GRNs and the calculation of covariation between genes within the GRNs.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
