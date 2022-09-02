@@ -1,5 +1,4 @@
 library(parallel)
-library(noisyr)
 
 #' Generates GRN for each batch's expression matrix
 #' 
