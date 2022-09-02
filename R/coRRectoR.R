@@ -11,15 +11,13 @@
 #' the rows are the genes. Default: none
 #' @param neighbours The number of nearest neighbours considered before the
 #' intersection across genes is calculated. Default: 20
-#' @param normalisation The normalisation method used (one of "quant",
-#' "tmm", "deseq"). Default: "quant"
 #' @param par Logical indicating whether to process the GRN inference and 
 #' covariation calculations for each batch in parallel. Default: F
 #' @export
-coRRectoR <- function(exps, neighbours=20, normalisation="quant", par=F) {
+coRRectoR <- function(exps, neighbours=20, par=F) {
   grns <- generateGRNS(exps, par)
   covs <- calculateCovs(grns, par)
   uniqueGenes <- intersectGenes(covs, neighbours)
-  exps <- normaliseExps(exps, uniqueGenes, normalisation)
+  exps <- normaliseExps(exps, uniqueGenes)
   return(exps)
 }
