@@ -4,7 +4,7 @@
 \alias{coRRectoR}
 \title{coRRectoR wrapper function}
 \usage{
-coRRectoR(exps, neighbours = 20, par = F)
+coRRectoR(exps, neighbours = 20, par = F, preprocess = T)
 }
 \arguments{
 \item{exps}{List of raw expression matrices where each item in list is
@@ -16,6 +16,9 @@ intersection across genes is calculated. Default: 20}
 
 \item{par}{Logical indicating whether to process the GRN inference and
 covariation calculations for each batch in parallel. Default: F}
+
+\item{preprocess}{Logical indicating whether to preprocess the GRNs using
+noisyR's count-based approch. Default: T}
 }
 \description{
 Performs all stages of coRRectoR pipeline by calling subsequent
