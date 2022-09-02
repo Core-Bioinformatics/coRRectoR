@@ -1,3 +1,5 @@
+library(noisyr)
+
 #' coRRectoR wrapper function
 #' 
 #' @description Performs all stages of coRRectoR pipeline by calling subsequent
@@ -13,8 +15,11 @@
 #' intersection across genes is calculated. Default: 20
 #' @param par Logical indicating whether to process the GRN inference and 
 #' covariation calculations for each batch in parallel. Default: F
+#' @param preprocess Logical indicating whether to preprocess the GRNs using
+#' noisyR's count-based approch. Default: T
 #' @export
-coRRectoR <- function(exps, neighbours=20, par=F) {
+coRRectoR <- function(exps, neighbours=20, par=F, preprocess=T) {
+  if (preprocess) exps <- lapply(exps, noisyr_counts)
   grns <- generateGRNS(exps, par)
   covs <- calculateCovs(grns, par)
   uniqueGenes <- intersectGenes(covs, neighbours)
