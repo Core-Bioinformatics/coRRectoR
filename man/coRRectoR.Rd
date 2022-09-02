@@ -4,7 +4,7 @@
 \alias{coRRectoR}
 \title{coRRectoR wrapper function}
 \usage{
-coRRectoR(exps, neighbours = 20, normalisation = "quant", par = F)
+coRRectoR(exps, neighbours = 20, par = F)
 }
 \arguments{
 \item{exps}{List of raw expression matrices where each item in list is
@@ -13,9 +13,6 @@ the rows are the genes. Default: none}
 
 \item{neighbours}{The number of nearest neighbours considered before the
 intersection across genes is calculated. Default: 20}
-
-\item{normalisation}{The normalisation method used (one of "quant",
-"tmm", "deseq"). Default: "quant"}
 
 \item{par}{Logical indicating whether to process the GRN inference and
 covariation calculations for each batch in parallel. Default: F}
