@@ -22,7 +22,7 @@ intersectGenes <- function(covs, neighbours=20) {
   
   # Intersect corresponding genes across batches
   message("found nearest neighbours, taking intersection across each gene")
-  similarGenes <- colnames(covs[[1]])
+  similarGenes <- Reduce(intersect, lapply(covs, rownames))
   colIntersections <- lapply(similarGenes, function(gene) Reduce(intersect, lapply(highestCovs, function(cov) unlist(cov[gene]))))
   
   # Take union of all genes
