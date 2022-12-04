@@ -1,6 +1,3 @@
-library(preprocessCore)
-library(poibm)
-
 #' Creates a normalised expression matrix of all samples
 #' 
 #' @description Merges all expression matrices (from each batch) into one and then
@@ -15,25 +12,25 @@ library(poibm)
 normaliseExps <- function(exps, uniqueGenes) {
 
   # Full expression matrix of all batches
-  genes <- lapply(exps, rownames)
-  similarGenes <- Reduce(intersect, genes)
-  similarExps <- lapply(exps, function(exp) exp[similarGenes,])
-  fullExpression <- data.matrix(do.call("cbind", similarExps))
+  genes <- base::lapply(exps, base::rownames)
+  similarGenes <- base::Reduce(base::intersect, genes)
+  similarExps <- base::lapply(exps, function(exp) exp[similarGenes,])
+  fullExpression <- base::data.matrix(base::do.call("cbind", similarExps))
   
   # Perform quantile normalisation on selected genes
-  fullExpression[uniqueGenes,] <- normalize.quantiles(fullExpression[uniqueGenes,])
+  fullExpression[uniqueGenes,] <- preprocessCore::normalize.quantiles(fullExpression[uniqueGenes,])
   
   # Transpose expression matrix
-  tExpression <- t(fullExpression)
+  tExpression <- base::t(fullExpression)
   
   # Run poibm on genes
-  unselectedGenes <- setdiff(colnames(tExpression), uniqueGenes)
-  uniqueGenes <- intersect(uniqueGenes, colnames(tExpression))
-  fit <- poibm.fit(tExpression[,uniqueGenes], tExpression[,unselectedGenes], max.resets=20, verbose=T)
-  tExpression[,unselectedGenes] <- poibm.apply(tExpression[,unselectedGenes], fit)
+  unselectedGenes <- base::setdiff(base::colnames(tExpression), uniqueGenes)
+  uniqueGenes <- base::intersect(uniqueGenes, base::colnames(tExpression))
+  fit <- poibm::poibm.fit(tExpression[,uniqueGenes], tExpression[,unselectedGenes], max.resets=20, verbose=T)
+  tExpression[,unselectedGenes] <- poibm::poibm.apply(tExpression[,unselectedGenes], fit)
   
   # Un-transpose
-  fullExpression <- t(tExpression)
+  fullExpression <- base::t(tExpression)
   
   return(fullExpression)
 }

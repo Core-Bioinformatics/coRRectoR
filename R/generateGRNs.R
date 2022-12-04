@@ -1,5 +1,3 @@
-library(parallel)
-
 #' Generates GRN for each batch's expression matrix
 #' 
 #' @description Calls MEANIE3 on each of the batches and returns a list of
@@ -10,12 +8,12 @@ library(parallel)
 generateGRNs <- function(exps, par=F) {
   
   # Create GRNs
-  message("inferring GRNs")
+  base::message("inferring GRNs")
   if (par) {
-    grns <- mclapply(preprocessed, MEANIE3)
+    grns <- parallel::mclapply(exps, coRRectoR::MEANIE3)
   } else {
-    grns <- lapply(preprocessed, MEANIE3)
+    grns <- base::lapply(exps, coRRectoR::MEANIE3)
   }
-  message("GRNs inferred")
+  base::message("GRNs inferred")
   return(grns)
 }

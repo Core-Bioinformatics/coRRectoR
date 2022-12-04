@@ -1,5 +1,3 @@
-library(noisyr)
-
 #' coRRectoR wrapper function
 #' 
 #' @description Performs all stages of coRRectoR pipeline by calling subsequent
@@ -19,10 +17,10 @@ library(noisyr)
 #' noisyR's count-based approch. Default: T
 #' @export
 coRRectoR <- function(exps, neighbours=20, par=F, preprocess=T) {
-  if (preprocess) exps <- lapply(exps, noisyr_counts)
-  grns <- generateGRNs(exps, par)
-  covs <- calculateCovs(grns, par)
-  uniqueGenes <- intersectGenes(covs, neighbours)
-  exps <- normaliseExps(exps, uniqueGenes)
+  if (preprocess) exps <- base::lapply(exps, noisyr::noisyr_counts)
+  grns <- coRRectoR::generateGRNs(exps, par)
+  covs <- coRRectoR::calculateCovs(grns, par)
+  uniqueGenes <- coRRectoR::intersectGenes(covs, neighbours)
+  exps <- coRRectoR::normaliseExps(exps, uniqueGenes)
   return(exps)
 }

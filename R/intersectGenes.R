@@ -13,21 +13,21 @@ intersectGenes <- function(covs, neighbours=20) {
   
   # Finds top N values in vector (bar top)
   topN <- function(vec) {
-    return(names(head(tail(sort(vec), neighbours + 1), neighbours)))
+    return(base::names(utils::head(utils::tail(base::sort(vec), neighbours + 1), neighbours)))
   }
   
   # Find highest covariance neighbours
-  message("finding nearest neighbours for each gene")
-  highestCovs <- lapply(covs, function(cov) as.data.frame(apply(cov, 2, topN)))
+  base::message("finding nearest neighbours for each gene")
+  highestCovs <- base::lapply(covs, function(cov) base::as.data.frame(base::apply(cov, 2, topN)))
   
   # Intersect corresponding genes across batches
-  message("found nearest neighbours, taking intersection across each gene")
-  similarGenes <- Reduce(intersect, lapply(covs, rownames))
-  colIntersections <- lapply(similarGenes, function(gene) Reduce(intersect, lapply(highestCovs, function(cov) unlist(cov[gene]))))
+  base::message("found nearest neighbours, taking intersection across each gene")
+  similarGenes <- base::Reduce(intersect, base::lapply(covs, base::rownames))
+  colIntersections <- base::lapply(similarGenes, function(gene) base::Reduce(intersect, base::lapply(highestCovs, function(cov) base::unlist(cov[gene]))))
   
   # Take union of all genes
-  message("intersection complete, taking union of selected genes")
-  uniqueGenes <- unique(unlist(colIntersections))
+  base::message("intersection complete, taking union of selected genes")
+  uniqueGenes <- base::unique(base::unlist(colIntersections))
   
   return(uniqueGenes)
 }

@@ -7,10 +7,12 @@
 calculateCovs(grns, par)
 }
 \arguments{
+\item{grns}{List of matrices representing GRNs inferred by MEANIE3}
+
 \item{par}{Logical indicating whether to run cov on all batches in parallel.
 Default: F}
 }
 \description{
-Calls base::cov on each of the GRNs and returns a list of
+Calls stats::cov on each of the GRNs and returns a list of
 covariation matrices
 }

@@ -5,11 +5,16 @@ Authors@R: c(
             person("Cameron", "Crawford", , "cc2111@cam.ac.uk", c("aut", "cre")),
             person("Irina", "Mohorianu", , "iim22@cam.ac.uk", role = c("aut", "ctb"))
             )
-Description: Functional bulk RNA-seq batch correction through the identification 
-    of consistent gene interactions between batches. Relies on the inference
-    of GRNs and the calculation of covariation between genes within the GRNs.
+Description: Functional bulk RNA-seq batch correction through the identification of consistent gene interactions between batches. Relies on the inference of GRNs and the calculation of covariation between genes within the GRNs.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Imports:
+  noisyr,
+  GENIE3,
+  parallel,
+  preprocessCore,
+  poibm,
+  stats
