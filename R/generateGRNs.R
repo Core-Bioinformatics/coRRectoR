@@ -10,9 +10,9 @@ generateGRNs <- function(exps, par=F) {
   # Create GRNs
   base::message("inferring GRNs")
   if (par) {
-    grns <- parallel::mclapply(exps, coRRectoR::MEANIE3)
+    grns <- parallel::mclapply(exps, GENIE3::GENIE3)
   } else {
-    grns <- base::lapply(exps, coRRectoR::MEANIE3)
+    grns <- base::lapply(exps, GENIE3::GENIE3)
   }
   base::message("GRNs inferred")
   return(grns)
