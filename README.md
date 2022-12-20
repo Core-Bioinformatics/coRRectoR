@@ -5,9 +5,10 @@ Bulk sequencing is state-of-the-art for exploring a wide-range of biological que
 
 To embed the functional interpretation of signal into the pre-processing of the data, we propose an inference of Gene Regulatory Networks on the batches to be integrated, followed by a batch correction based on aligning the functional interactions. This approach relies on the comparable aspects across batches and accommodates the signal specific to individual samples (both technical [noise], and biological [patient characteristics]). To link the data-analysis to its interpretation, and facilitate interactive, exploratory tasks and the sharing of easily-accessible information, we integrated coRRectoR with the bulkAnalyseR pipeline (accepted in Briefings in Bioinformatics).
 
-Live app example: https://bioinf.stemcells.cam.ac.uk/shiny/coRRectoR_ab6s5HVclEDzVgrjp4wJ/
+Live app example: https://bioinf.stemcells.cam.ac.uk/shiny/CoreBioinformatics/coRRectoR/
 
 ![showcase](coRRectoR_showcase.png)
+**coRRectoR pipeline** [A] overview of the coRRectoR pipeline steps, dark genes are the ones in common across batches; [B1-3] PCAs summarising the transcriptomic signatures for two batches with no correction (1), ComBat-seq correction (2), coRRectoR correction (3). [C1-3] PCAs illustrating the separation per tissue type; the coRRectoR approach captures the tissue-signature, separating well the tissues 1 and 4 vs the tissues 2 and 3.
 
 If you are using components of this package in published research please cite the following papers along with the *bulkAnalyseR* manuscript:
 
