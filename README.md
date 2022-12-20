@@ -7,6 +7,8 @@ To embed the functional interpretation of signal into the pre-processing of the 
 
 Live app example: https://bioinf.stemcells.cam.ac.uk/shiny/coRRectoR_ab6s5HVclEDzVgrjp4wJ/
 
+![showcase](coRRectoR_showcase.png)
+
 If you are using components of this package in published research please cite the following papers along with the *bulkAnalyseR* manuscript:
 
 * **Comprehensive Shiny App for bulk data** Moutsopoulos, I., Williams EC, Mohorianu I (2022). bulkAnalyseR: An accessible, interactive pipeline for analysing and sharing bulk multi-modal sequencing data 
