@@ -18,4 +18,8 @@ Imports:
   preprocessCore,
   poibm,
   stats,
-  bulkAnalyseR
+  bulkAnalyseR,
+  edgeR,
+  DESeq2,
+  AnnotationDBI,
+  ComplexHeatmap
