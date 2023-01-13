@@ -7,6 +7,13 @@
 #' @export
 generateGRNs <- function(exps, par=F) {
   
+  # Remove zero-variance genes
+  vars <- base::lapply(exps, function(exp) base::apply(exp, 1, stats::var))
+  pos_var <- lapply(vars, function(var) var > 0)
+  for (i in 1:base::length(exps)) {
+    exps[[i]] <- exps[[i]][pos_var[[i]],]
+  }
+
   # Create GRNs
   base::message("inferring GRNs")
   if (par) {
